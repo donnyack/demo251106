@@ -1,0 +1,57 @@
+<style>
+		#uitvoerveld2{
+			display:inline-block;
+
+		}
+
+
+</style>
+
+<script>
+	function doen(){
+		var x = document.getElementById("invoerveld").value;
+		console.log(x);
+        x = parseInt(x);
+        var y = document.getElementById("invoerveld2").value;
+        console.log(y);
+        y = parseInt(y);
+        var bmi = (x/((y/100)**2));
+        let bmi_round = bmi.toFixed(2)
+        if (bmi_round < 18.5) {
+		document.getElementById("uitvoerveld").innerHTML = "Jouw BMI is: " + bmi_round + ".";
+		document.getElementById("uitvoerveld2").innerHTML = "Je hebt ondergewicht.";
+        document.getElementById("uitvoerveld2").style.backgroundColor = 'yellow';
+        }
+        else if (bmi_round > 18.5 && bmi_round < 25) {
+		document.getElementById("uitvoerveld").innerHTML = "Jouw BMI is: " + bmi_round + ".";
+		document.getElementById("uitvoerveld2").innerHTML = "Je hebt een gezond gewicht.";
+        document.getElementById("uitvoerveld2").style.backgroundColor = 'green';
+
+        }
+        else if (bmi_round > 25 && bmi_round < 30) {
+		document.getElementById("uitvoerveld").innerHTML = "Jouw BMI is: " + bmi_round + ".";
+		document.getElementById("uitvoerveld2").innerHTML = "Je hebt overgewicht.";
+        document.getElementById("uitvoerveld2").style.backgroundColor = 'orange';
+
+        }
+        else {
+		document.getElementById("uitvoerveld").innerHTML = "Jouw BMI is: " + bmi_round + ".";
+		document.getElementById("uitvoerveld2").innerHTML = "Je hebt obesitas.";
+        document.getElementById("uitvoerveld2").style.backgroundColor = 'red';
+        }
+        }
+
+
+</script>
+BMI Berekenen:
+<br>
+Wat is je gewicht in kilogram? <input id="invoerveld">
+<br>
+Wat is je lengte in centimer? <input id="invoerveld2">
+<br>
+<input type = button value="Bereken BMI" onclick=doen()>
+<br>
+<br>
+<br>
+<div id="uitvoerveld"></div>
+<div id="uitvoerveld2"></div>
